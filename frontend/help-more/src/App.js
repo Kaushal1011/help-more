@@ -21,13 +21,14 @@ import SignupPage from "./components/signupPage";
 import LandingDash from "./components/landingdash";
 import Gethelp from "./components/gethelp";
 import Helpothers from "./components/helpothers";
+import Rewardme from "./components/rewardme";
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: green[700],
+            main: blue[700],
         },
         secondary: {
-            main: blue[600],
+            main: green[600],
         },
     },
 });
@@ -43,6 +44,7 @@ function App() {
                         <Route exact path="/login" component={LoginPage} />
                         <Route exact path="/gethelp" component={Gethelp} />
                         <Route exact path="/dohelp" component={Helpothers} />
+                        <Route exact path="/rewardme" component={Helpothers} />
                     </Switch>
                 </Router>
             </ThemeProvider>
