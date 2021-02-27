@@ -22,7 +22,7 @@ function Copyright() {
         <Typography variant="body2" color="textSecondary" align="center">
             {"Copyright © "}
             <Link color="inherit" href="/">
-                Grow More
+                Help More
             </Link>{" "}
             {new Date().getFullYear()}
             {"."}
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Listthing() {
+export default function Helpothers() {
     const [value, setValue] = React.useState(0);
     const [list, setList] = React.useState([]);
     const [lat, setLat] = useState(23);

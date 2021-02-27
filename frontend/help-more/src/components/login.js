@@ -96,7 +96,7 @@ function Login({ history, ...props }) {
                 // read token with the following:
                 // const token = window.localstorage.getItem('token');
                 // TODO: why can't I use history.push() here?
-                window.location.href = "/list";
+                window.location.href = "/gethelp";
             } else {
                 setUserInfo((prevState) => ({
                     ...prevState,

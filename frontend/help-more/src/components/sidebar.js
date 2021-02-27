@@ -35,7 +35,7 @@ export default function Sidebar() {
 
         setState({ ...state, left: open });
     };
-    const pathArray = ["/add", "/list", "/rewards", "/admin", "/invest"];
+    const pathArray = ["/gethelp", "/dohelp", "/rewards", "/admin", "/invest"];
     const list = () => (
         <div
             className={clsx(classes.list)}
