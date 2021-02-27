@@ -71,13 +71,19 @@ export default function Gethelp() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    let hiturl;
+    hiturl = "http://localhost:5000/help/request";
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const [text, setText] = useState("");
     const [list, setRadarlist] = useState([]);
     const [lat, setClickedLat] = useState(22);
     const [long, setClickedLong] = useState(70);
-
+    const [label, setLabel] = useState("");
+    const [details, setDetails] = useState("");
+    const type = "User";
+    const auth = window.localStorage.getItem("token") ? true : false;
+    const token = window.localStorage.getItem("token");
     return (
         <>
             <Navbar></Navbar>
@@ -138,7 +144,69 @@ export default function Gethelp() {
                                             <Button
                                                 variant="contained"
                                                 color="primary"
-                                                onClick={() => {}}
+                                                onClick={() => {
+                                                    if (auth) {
+                                                        var axios = require("axios");
+                                                        var data = JSON.stringify(
+                                                            {
+                                                                label: label,
+                                                                type: type,
+                                                                x: long,
+                                                                y: lat,
+                                                                details: details,
+                                                            }
+                                                        );
+
+                                                        var config = {
+                                                            method: "post",
+                                                            url: hiturl,
+                                                            headers: {
+                                                                Authorization: `Bearer ${token}`,
+                                                                "Content-Type":
+                                                                    "application/json",
+                                                            },
+                                                            data: data,
+                                                        };
+
+                                                        axios(config)
+                                                            .then(function (
+                                                                response
+                                                            ) {
+                                                                console.log(
+                                                                    JSON.stringify(
+                                                                        response.data
+                                                                    )
+                                                                );
+                                                                if (
+                                                                    response
+                                                                        .data
+                                                                        .message
+                                                                ) {
+                                                                    if (
+                                                                        response
+                                                                            .data
+                                                                            .message ==
+                                                                        "accepted"
+                                                                    ) {
+                                                                        alert(
+                                                                            "Listing Created!"
+                                                                        );
+                                                                    }
+                                                                }
+                                                            })
+                                                            .catch(function (
+                                                                error
+                                                            ) {
+                                                                console.log(
+                                                                    error
+                                                                );
+                                                            });
+                                                    } else {
+                                                        alert(
+                                                            "please login to make a listing"
+                                                        );
+                                                    }
+                                                }}
                                             >
                                                 Get help
                                             </Button>

@@ -64,7 +64,11 @@
 
         let userApi = require("./routes/api.user.js")(app, express, db);
         let helpApi = require("./routes/api.help.js")(app, express, db);
-        let blockchainApi = require("./routes/api.blockchain.js")(app, express, db);
+        let blockchainApi = require("./routes/api.blockchain.js")(
+            app,
+            express,
+            db
+        );
 
         app.use("/", userApi);
         app.use("/", helpApi);
