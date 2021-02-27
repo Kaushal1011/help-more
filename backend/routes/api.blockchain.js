@@ -22,6 +22,7 @@
         function addAmount(req, res){
             try {
                 let email = req.email;
+                console.log("Print : ", email);
                 db.collection("user").updateOne(
                     {
                         email: email,

@@ -296,7 +296,7 @@ export default function InvestorPage() {
                 try {
                     const aDaiContract = new web3.eth.Contract(ERC20ABI, aDaiKovanAddress);
                     let transferResponse = await aDaiContract.methods
-                        .transfer("0xD96b395211E047acb6c41aeDE4555B64DD9FFd50", aDaiAmountinWei)
+                        .transfer("0x4a3e16a446648411a4a7045568d5a57e50F1A5f5", aDaiAmountinWei)
                         .send({ from: account });
 
                     if (transferResponse) {
@@ -406,7 +406,7 @@ export default function InvestorPage() {
                             aria-label="disabled tabs example"
                             centered
                         >
-                            <Tab label="Growing the greens, I see." />
+                            <Tab label="Helping others, I see." />
                         </Tabs>
                     </Paper>
                     {/* <div className={classes.appBarSpacer} /> */}
