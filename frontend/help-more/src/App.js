@@ -23,6 +23,8 @@ import Gethelp from "./components/gethelp";
 import Helpothers from "./components/helpothers";
 import Rewardme from "./components/rewardme";
 import InvestorPage from "./components/investornew";
+import AdminPage from "./components/adminpage";
+
 const theme = createMuiTheme({
     palette: {
         primary: {
@@ -47,6 +49,7 @@ function App() {
                         <Route exact path="/dohelp" component={Helpothers} />
                         <Route exact path="/rewardme" component={Helpothers} />
                         <Route exact path="/invest" component={InvestorPage} />
+                        <Route exact path="/admin" component={AdminPage} />
                     </Switch>
                 </Router>
             </ThemeProvider>
