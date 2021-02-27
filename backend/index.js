@@ -59,10 +59,14 @@
         );
         console.log("MongoDB Connected");
         db = client.db(config.db_name);
+        db.collection("helpdid").createIndex({ location: "2dsphere" });
+        db.collection("helpreqs").createIndex({ location: "2dsphere" });
 
         let userApi = require("./routes/api.user.js")(app, express, db);
+        let helpApi = require("./routes/api.help.js")(app, express, db);
 
         app.use("/", userApi);
+        app.use("/", helpApi);
     }
 
     // auth interceptor
@@ -79,6 +83,10 @@
                 "/user/signup/",
                 "/user/login/",
                 "/user/password/",
+                "/help/around",
+                "/help/helpedaround",
+                "/help/around/",
+                "/help/helpedaround/",
             ];
         // ignore paths that dont require auth
         if (_.contains(nonSecurePaths, req.path)) return next();
