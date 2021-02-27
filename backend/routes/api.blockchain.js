@@ -1,11 +1,11 @@
-(function() {
+(function () {
     const bcrypt = require("bcrypt");
     const config = require("../config");
     const jwt = require("jsonwebtoken");
     const mongo = require("mongodb");
     module.exports = blockchainApi;
 
-    function blockchainApi(app, express, db){
+    function blockchainApi(app, express, db) {
         let apiRouter = express.Router();
 
         apiRouter.put("/amount/add", addAmount);
@@ -19,7 +19,7 @@
 
         return apiRouter;
 
-        function addAmount(req, res){
+        function addAmount(req, res) {
             try {
                 let email = req.email;
                 console.log("Print : ", email);
@@ -48,7 +48,7 @@
             }
         }
 
-        function addAccount(req, res){
+        function addAccount(req, res) {
             try {
                 let email = req.body.email;
                 db.collection("user").updateOne(
@@ -181,7 +181,7 @@
                         email: email,
                         status: "pending",
                         rewards: 5,
-                        growntree: body.growntree,
+                        helpdid: body.helpdid,
                         userAddress: body.userAddress,
                     },
                     (err, docs) => {

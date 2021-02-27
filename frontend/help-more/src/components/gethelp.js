@@ -120,7 +120,9 @@ export default function Gethelp() {
                                                 label="label"
                                                 fullWidth
                                                 autoComplete="label"
-                                                onChange={(e) => {}}
+                                                onChange={(e) => {
+                                                    setLabel(e.target.value);
+                                                }}
                                             />
                                         </Grid>
                                         <Grid item xs={12}>
@@ -131,7 +133,9 @@ export default function Gethelp() {
                                                 label="details"
                                                 fullWidth
                                                 autoComplete="details"
-                                                onChange={(e) => {}}
+                                                onChange={(e) => {
+                                                    setDetails(e.target.value);
+                                                }}
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={6}>

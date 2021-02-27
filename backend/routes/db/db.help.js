@@ -1,5 +1,4 @@
 let reqhelp = function (db, email, body, callback) {
-    // similar except here details mean tree preferences
     db.collection("helpreqs").insertOne(
         {
             email: email,
@@ -52,7 +51,7 @@ let dohelp = function (db, email, body, callback) {
 
 let getreqhelp = function (db, x, y, callback) {
     if (x != undefined && y != undefined) {
-        db.collection("helpdid")
+        db.collection("helpreqs")
             .find({
                 location: {
                     $near: {
@@ -68,7 +67,7 @@ let getreqhelp = function (db, x, y, callback) {
                 callback(docs);
             });
     } else {
-        db.collection("land")
+        db.collection("helpreqs")
             .find()
             .toArray()
             .then((docs) => {

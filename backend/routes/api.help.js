@@ -1,16 +1,15 @@
 (function () {
     const express = require("express");
 
-    module.exports = treeApi;
-    const dbfunctree = require("./db/db.help.js");
+    module.exports = helpApi;
+    const dbfunchelp = require("./db/db.help.js");
 
-    function treeApi(app, express, db) {
+    function helpApi(app, express, db) {
         let apiRouter = express.Router();
 
-        // Request a Tree O
+        // Request a help O
         apiRouter.post("/help/request", requesthelp);
 
-        // Grow a Tree O
         apiRouter.post("/help/do", dohelp);
         // easier call O
         apiRouter.get("/help/around", gethelp);
@@ -22,7 +21,7 @@
         function requesthelp(req, res) {
             try {
                 let email = req.email;
-                dbfunctree.reqhelp(db, email, req.body, (docs) => {
+                dbfunchelp.reqhelp(db, email, req.body, (docs) => {
                     res.status(200).json({ message: "accepted" });
                     return;
                 });
@@ -36,7 +35,7 @@
         function dohelp(req, res) {
             try {
                 let email = req.email;
-                dbfunctree.dohelp(db, email, req.body, (docs) => {
+                dbfunchelp.dohelp(db, email, req.body, (docs) => {
                     res.status(200).json({ message: "accepted" });
                     return;
                 });
@@ -53,7 +52,7 @@
                 let y = parseFloat(req.query.y);
                 console.log(x);
                 console.log(y);
-                dbfunctree.getreqhelp(db, x, y, (docs) => {
+                dbfunchelp.getreqhelp(db, x, y, (docs) => {
                     res.status(200).json(docs);
                 });
             } catch (err) {
@@ -63,8 +62,8 @@
             }
         }
         function gethelpsByUser(req, res) {
-            var cursor = db.collection("growntrees").find({ email: req.email });
-            var userTress = [];
+            var cursor = db.collection("helpdid").find({ email: req.email });
+            var userhelps = [];
             cursor.each(processCursor);
             function processCursor(err, doc) {
                 if (err) {
@@ -75,10 +74,10 @@
                 }
 
                 if (doc != null) {
-                    userTress.push(doc);
+                    userhelps.push(doc);
                 } else {
                     res.status(200).json({
-                        trees: userTress,
+                        helps: userhelps,
                     });
                 }
             }
@@ -90,7 +89,7 @@
                 let y = parseFloat(req.query.y);
                 console.log(x);
                 console.log(y);
-                dbfunctree.gethelpedaroundtree(db, x, y, (docs) => {
+                dbfunchelp.gethelpedaround(db, x, y, (docs) => {
                     res.status(200).json(docs);
                 });
             } catch (err) {

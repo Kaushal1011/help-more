@@ -47,7 +47,7 @@ function App() {
                         <Route exact path="/login" component={LoginPage} />
                         <Route exact path="/gethelp" component={Gethelp} />
                         <Route exact path="/dohelp" component={Helpothers} />
-                        <Route exact path="/rewardme" component={Helpothers} />
+                        <Route exact path="/rewardme" component={Rewardme} />
                         <Route exact path="/invest" component={InvestorPage} />
                         <Route exact path="/admin" component={AdminPage} />
                     </Switch>

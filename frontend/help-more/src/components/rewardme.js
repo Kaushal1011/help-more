@@ -18,6 +18,7 @@ import { Button } from "@material-ui/core";
 import Navbar from "./navbar";
 import ListB from "./atoms/listbutton";
 // import Badge from "@material-ui/core/Badge";
+import Web3 from "web3";
 
 function Copyright() {
     return (
@@ -89,9 +90,98 @@ export default function Rewardme() {
     const [list, setList] = useState([]);
     const [maplat, setmapLat] = useState(22);
     const [maplong, setmapLong] = useState(72);
-
+    const auth = window.localStorage.getItem("token") ? true : false;
+    const token = window.localStorage.getItem("token");
+    const [web3, setWeb3] = useState(null);
+    const [account, setAccount] = useState(null);
     // const fixedHeightPaper3 = clsx(classes.paper, classes.fixedHeight3);
+    useEffect(() => {
+        async function getAddress() {
+            // check for ethereum provider
+            if (window.ethereum) {
+                // create a new web3 instance
+                var web3Instance = new Web3(window.ethereum);
+                await window.ethereum.enable(); // enable metamask (or other wallet)
+                window.web3 = web3Instance;
 
+                setWeb3(web3Instance);
+
+                // fetch accounts
+                var account = (await web3Instance.eth.getAccounts())[0];
+                console.log("Account: ", account);
+
+                setAccount(account);
+            }
+        }
+        getAddress();
+    }, []);
+
+    function callbackclick(elem) {
+        console.log("clicked");
+        setmapLat(elem.location.coordinates[1]);
+        setmapLong(elem.location.coordinates[0]);
+    }
+    function callbackbutton(elem) {
+        console.log("clicked");
+        console.log(token);
+        setmapLat(elem.location.coordinates[1]);
+        setmapLong(elem.location.coordinates[0]);
+        if (auth) {
+            var axios = require("axios");
+            var data = JSON.stringify({
+                helpdid: elem,
+                userAddress: account,
+            });
+
+            var config = {
+                method: "post",
+                url: "http://localhost:5000/reward/ask",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+                data: data,
+            };
+            console.log("My config : ", config);
+            axios(config)
+                .then(function (response) {
+                    console.log(JSON.stringify(response.data));
+                    alert(
+                        "Request Accepted!\n" + JSON.stringify(response.data)
+                    );
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("cannot request");
+                });
+        } else {
+            alert("cannot request");
+        }
+    }
+
+    useEffect(() => {
+        var axios = require("axios");
+
+        var config = {
+            method: "get",
+            url: "http://localhost:5000/help/getbyuser/",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                setList(response.data.helps);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
+    if (!auth) {
+        alert("Please Login to view this page");
+    }
     return (
         <>
             <Navbar></Navbar>
@@ -108,7 +198,7 @@ export default function Rewardme() {
                             aria-label="disabled tabs example"
                             centered
                         >
-                            <Tab label="How Much Green Did You Make?" />
+                            <Tab label="How Much Did You Help Others?" />
                         </Tabs>
                     </Paper>
                     <div className={classes.appBarSpacer} />
@@ -121,8 +211,8 @@ export default function Rewardme() {
                                     <ListB
                                         list={list}
                                         button="Request reward"
-                                        clickcallback={() => {}}
-                                        buttoncallback={() => {}}
+                                        clickcallback={callbackclick}
+                                        buttoncallback={callbackbutton}
                                     />
                                 </Paper>
                             </Grid>
@@ -161,7 +251,8 @@ export default function Rewardme() {
                                                 color="primary"
                                                 padding="5px"
                                             >
-                                                5 Coins per Tree
+                                                5 Coins for everytime you help
+                                                someone!
                                             </Button>
                                             {/* </div> */}
                                         </Paper>

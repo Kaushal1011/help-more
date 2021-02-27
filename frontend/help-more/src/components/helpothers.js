@@ -68,6 +68,129 @@ export default function Helpothers() {
     const [long, setLong] = useState(72);
     const [maplat, setmapLat] = useState(22);
     const [maplong, setmapLong] = useState(72);
+    const auth = window.localStorage.getItem("token") ? true : false;
+    const token = window.localStorage.getItem("token");
+    function callbackclick(elem) {
+        console.log("clicked");
+        setmapLat(elem.location.coordinates[1]);
+        setmapLong(elem.location.coordinates[0]);
+    }
+    function callbackbutton(elem) {
+        console.log("clicked");
+        console.log(token);
+        setmapLat(elem.location.coordinates[1]);
+        setmapLong(elem.location.coordinates[0]);
+        if (auth) {
+            var axios = require("axios");
+            var data = JSON.stringify({
+                label: "Someone was helped here ^_^",
+                type: "User",
+                req: elem,
+                x: elem.location.coordinates[0],
+                y: elem.location.coordinates[1],
+                details: "Generic details",
+            });
+
+            var config = {
+                method: "post",
+                url: "http://localhost:5000/help/do",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+                data: data,
+            };
+
+            axios(config)
+                .then(function (response) {
+                    console.log(JSON.stringify(response.data));
+                    alert("Help did");
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        } else {
+            alert("cannot help login first");
+        }
+    }
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log("Latitude is :", position.coords.latitude);
+            setLat(position.coords.latitude);
+            setLong(position.coords.longitude);
+            console.log("Longitude is :", position.coords.longitude);
+
+            const apiUrl = `http://localhost:5000/help/around?x=${position.coords.latitude}&y=${position.coords.longitude}`;
+            const requestOptions = {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            };
+            fetch(apiUrl, requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    console.log(long);
+                    console.log(lat);
+                    setList(data);
+                });
+        });
+    }, []);
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log("Latitude is :", position.coords.latitude);
+            setLat(position.coords.latitude);
+            setLong(position.coords.longitude);
+            console.log("Longitude is :", position.coords.longitude);
+
+            let apiUrl;
+            if (value == 0)
+                apiUrl = `http://localhost:5000/help/around?x=${position.coords.latitude}&y=${position.coords.longitude}`;
+            else
+                apiUrl = `http://localhost:5000/help/helpedaround?x=${position.coords.latitude}&y=${position.coords.longitude}`;
+
+            const requestOptions = {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            };
+            fetch(apiUrl, requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    console.log(long);
+                    console.log(lat);
+                    setList(data);
+                });
+        });
+    }, [value]);
+
+    useTimeout(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log("Latitude is :", position.coords.latitude);
+            setLat(position.coords.latitude);
+            setLong(position.coords.longitude);
+            console.log("Longitude is :", position.coords.longitude);
+
+            let apiUrl;
+            if (value == 0)
+                apiUrl = `http://localhost:5000/help/around?x=${position.coords.latitude}&y=${position.coords.longitude}`;
+            else
+                apiUrl = `http://localhost:5000/help/helpedaround?x=${position.coords.latitude}&y=${position.coords.longitude}`;
+
+            const requestOptions = {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            };
+            fetch(apiUrl, requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    console.log(long);
+                    console.log(lat);
+                    setList(data);
+                });
+        });
+    }, 120000);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -80,13 +203,11 @@ export default function Helpothers() {
     //     { details: "details 3" },
     // ];
     let listjsx;
-    function callbackclick() {}
-    function callbackbutton() {}
-    if (value != 3) {
+    if (value != 1) {
         listjsx = (
             <ListB
                 list={list}
-                button="Grow Here"
+                button="Help Here"
                 clickcallback={callbackclick}
                 buttoncallback={callbackbutton}
             />

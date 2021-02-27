@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import NatureIcon from "@material-ui/icons/Nature";
+import AccessibilityNewIcon from "@material-ui/icons/AccessibilityNew";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -33,7 +33,7 @@ export default function ListB(props) {
                                 }}
                             >
                                 <ListItemIcon>
-                                    <NatureIcon />
+                                    <AccessibilityNewIcon />
                                 </ListItemIcon>
                                 <ListItemText
                                     id={i}
@@ -70,7 +70,7 @@ export default function ListB(props) {
                             }}
                         >
                             <ListItemIcon>
-                                <NatureIcon />
+                                <AccessibilityNewIcon />
                             </ListItemIcon>
                             <ListItemText
                                 id={i}
