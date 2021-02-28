@@ -60,7 +60,7 @@ Make sure that MongoDB is installed and running
 
 Run `npm start server` 
 
-## Frontend ->
+## Frontend
 
 Libraries and dependencies
 
