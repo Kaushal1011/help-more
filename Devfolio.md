@@ -1,29 +1,5 @@
 # Help-More
 
-## [Video Demo](https://youtu.be/sR72k2oUssw)
-
-
-Doing community work is a great way to give back to others. People across the world are always doing community work such as cleaning parks, helping the elderly in their free time. However many people are still hesitant to do community work. What if we had a platform where people could create listings for the need of such work and people could find these listings and fulfil the wishes of the community. Furthermore using the blockchain pooling concept we can reward people for their selfless act thereby encouraging more people to do community work.
-
-So we are planning to build a platform where users can add the community work at some required location. Users of the platform will be able to see those tasks. Once any user completes those tasks, they can claim the rewards which they will get in the form of Aave Dai tokens(aDai).
-
-# Flow of Application
-
-Investor -> Philanthropists -> Donate money, claim money back after min of 4 months -> no change
-
-## User
-
-- Dashboard of tasks
-  - List a task
-    - Add detailed description with location
-  - Do a task
-    - Need to provide some details of completed task 
-    - Claim for reward
-- Request rewards
-  - Request for reward -> Accept it. Right now fix the amount.
-
-
-
 
 ## Tagline 
 
