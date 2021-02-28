@@ -1,6 +1,6 @@
 # Help More
 
-[HelpMore](HelpMore.png)
+![HelpMore](HelpMore.png)
 
 ## Description
 
@@ -34,9 +34,7 @@ You need to have a metamask account and some test ethereum on Kovan Network.
 
 ## System Design : 
 
-[FlowChart](Help_More.png)
-
-
+![FlowChart](Help_More.png)
 
 ## Backend
 
