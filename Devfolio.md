@@ -2,7 +2,8 @@
 
 ## [Video Demo](https://youtu.be/sR72k2oUssw)
 
-Doing community work is a great way to give back to others. People across the world are always doing community work such as cleaning parks, helping the elderly in their freetime. However many people are still hesitant to do community work. What if we had a platform where people could create listings for need of such work and people could find these listings and fulfill wishes of the community. Furthermore using blockchain pooling concept we can reward people for their selfless act thereby encouraging more people to do community work.
+
+Doing community work is a great way to give back to others. People across the world are always doing community work such as cleaning parks, helping the elderly in their free time. However many people are still hesitant to do community work. What if we had a platform where people could create listings for the need of such work and people could find these listings and fulfil the wishes of the community. Furthermore using the blockchain pooling concept we can reward people for their selfless act thereby encouraging more people to do community work.
 
 So we are planning to build a platform where users can add the community work at some required location. Users of the platform will be able to see those tasks. Once any user completes those tasks, they can claim the rewards which they will get in the form of Aave Dai tokens(aDai).
 
@@ -30,9 +31,10 @@ Help community and earn rewards(crypto money)
 
 ## The problem it solves
 
-Doing community work is a great way to give back to others. People across the world are always doing community work such as cleaning parks, helping the elderly in their freetime. However many people are still hesitant to do community work. Also, there are many people who want to help the community by listing tasks, but they do not find a proper platform. Some are not motivated enough to help others/community. Also, we have seen that there are philanthropists who care about community and donate for the welfare of the community, but that donation is not always used in a proper way. 
+Doing community work is a great way to give back to others. People across the world are always doing community work such as cleaning parks, helping the elderly in their free time. However many people are still hesitant to do community work. Also, there are many people who want to help the community by listing tasks, but they do not find a proper platform. Some are not motivated enough to help others/the community. Also, we have seen that there are philanthropists who care about the community and donate for the welfare of the community, but that donation is not always used in a proper way. 
 
-Help more solve all these issues. It’s a platform where users can add community tasks, perform tasks, and ask for help. To motivate the user, we have a reward system i.e. after completing tasks, users can claim aDai tokens as reward. Philanthropists can donate aDai tokens. After a minimum of 4-5 months, they can claim back all their funds if they want. So you might wonder, how we will get money to reward? Using Aave, we are creating a lending pool where we get cumulative interest every hour. For example, if someone donates 5000 aDai tokens, then after 4-5 months we may have 5500 aDai tokens (interest varies every hour as per blockchain market).
+Help more solve all these issues. It’s a platform where users can add community tasks, perform tasks, and ask for help. To motivate the user, we have a reward system i.e. after completing tasks, users can claim aDai tokens as a reward. Philanthropists can donate aDai tokens. After a minimum of 4-5 months, they can claim back all their funds if they want. So you might wonder, how we will get money to reward? Using Aave, we are creating a lending pool where we get cumulative interest every hour. For example, if someone donates 5000 aDai tokens, then after 4-5 months we may have 5500 aDai tokens (interest varies every hour as per blockchain market).
+
 
 We have three main stakeholders which can do the activities : 
 
@@ -50,7 +52,7 @@ We have three main stakeholders which can do the activities :
 - Review user’s reward request and accept/decline
 - Review withdraw request and accept/decline
 
-IMPACT : By using this platform, it’s a win-win situation for everyone. Users will be able to get motivation to help the society as well as get the money. Philanthropists would be able to withdraw back their funds if they want, but they have already helped the community with their funds. 
+IMPACT: By using this platform, it’s a win-win situation for everyone. Users will be able to get motivation to help the society as well as get the money. Philanthropists would be able to withdraw back their funds if they want, but they have already helped the community with their funds. 
 
 
 
