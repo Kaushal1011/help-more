@@ -1,5 +1,7 @@
 # Help-More
 
+## [Video Demo](https://youtu.be/sR72k2oUssw)
+
 Doing community work is a great way to give back to others. People across the world are always doing community work such as cleaning parks, helping the elderly in their freetime. However many people are still hesitant to do community work. What if we had a platform where people could create listings for need of such work and people could find these listings and fulfill wishes of the community. Furthermore using blockchain pooling concept we can reward people for their selfless act thereby encouraging more people to do community work.
 
 So we are planning to build a platform where users can add the community work at some required location. Users of the platform will be able to see those tasks. Once any user completes those tasks, they can claim the rewards which they will get in the form of Aave Dai tokens(aDai).
@@ -52,7 +54,7 @@ IMPACT : By using this platform, it’s a win-win situation for everyone. Users 
 
 
 
-## Challenges we ran into (2000 chars)
+## Challenges we ran into 
 
 - Integration of Aave protocol and creating lending pool
 - There are two versions of Aave APIs. We started with the latest version, but we were not able to get token addresses of the Kovan test network. When we tried using the address mentioned on Ether scan, it showed some other token instead of Dai. Also we were facing difficulty in finding ABIs. Then we shifted to version 1. In v1 also, we faced a couple of issues in token addresses. But it was solved by tracing addresses on Ether scan. 
