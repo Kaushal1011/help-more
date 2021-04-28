@@ -2,6 +2,8 @@
 
 ![HelpMore](HelpMore.png)
 
+## [Video Demonstration](https://youtu.be/sR72k2oUssw)
+
 ## Description
 
 Doing community work is a great way to give back to others. People across the world are always doing community work such as cleaning parks, helping the elderly in their free time. However many people are still hesitant to do community work. Also, there are many people who want to help the community by listing tasks, but they do not find a proper platform. Some are not motivated enough to help others/the community. Also, we have seen that there are philanthropists who care about the community and donate for the welfare of the community, but that donation is not always used in a proper way. 
